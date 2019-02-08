@@ -3,7 +3,7 @@ module.exports = {
     apps : [
       {
         name      : process.env.API_NAME,
-        script    : 'server.express.js',
+        script    : 'app.js',
         instances : "max",
         exec_mode : "cluster" ,
         watch : true,

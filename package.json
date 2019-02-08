@@ -1,0 +1,39 @@
+{
+  "name": "test_reclameAqui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "preinstall": "npm install pm2 -g",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js",
+    "start": "pm2-runtime start config/pm2.ecosystem.js --env production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PierreHeidinger/test_reclameAqui.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PierreHeidinger/test_reclameAqui/issues"
+  },
+  "homepage": "https://github.com/PierreHeidinger/test_reclameAqui#readme",
+  "dependencies": {
+    "compression": "^1.7.3",
+    "cors": "^2.8.5",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "express-load": "^1.1.16",
+    "express-promise-router": "^3.0.3",
+    "helmet": "^3.15.0",
+    "jsonwebtoken": "^8.4.0",
+    "mongoose": "^5.4.10",
+    "node-where": "^1.1.0",
+    "request-promise": "^4.2.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}

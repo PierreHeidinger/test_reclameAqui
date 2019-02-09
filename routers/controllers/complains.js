@@ -5,6 +5,14 @@ const { Complain } = require('../../db/models/index');
 
 class Complains
 {
+
+    async getAll(request,response)
+    {
+        var complains = await Complain.find({});
+
+        response.status(200).json(complains);
+    };
+
     async add(request,response)
     {      
         let requestIP = request.ip;
@@ -21,7 +29,7 @@ class Complains
 
         response.status(200).json(save);
 
-    }
+    };
 }
 
 

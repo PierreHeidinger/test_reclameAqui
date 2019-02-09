@@ -7,6 +7,7 @@ const Complains = (app) =>
     const complainController = new ComplainController();
 
     //Routes
+    router.get('/getAll',complainController.getAll);
     router.post('/add',complainController.add);
     //express
     app.use('/api/complains',router)

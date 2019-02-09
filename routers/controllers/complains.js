@@ -7,7 +7,7 @@ class Complains
 {
     async add(request,response)
     {      
-        let requestIP = request.connection.remoteAddress;
+        let requestIP = request.ip;
 
         var userIP = (requestIP.trim() == '::1' ) ? '187.10.129.216' : requestIP;
         var complain = request.body;

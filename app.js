@@ -46,4 +46,9 @@ class Server {
 }
 
 //Load Server 
-new Server().run();
+var server = new Server();
+server.run();
+
+
+//Export app for Test
+exports = module.exports = server.express;

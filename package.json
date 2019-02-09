@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/PierreHeidinger/test_reclameAqui#readme",
   "dependencies": {
+    "cities": "^2.0.0",
     "compression": "^1.7.3",
     "cors": "^2.8.5",
     "dotenv": "^6.2.0",

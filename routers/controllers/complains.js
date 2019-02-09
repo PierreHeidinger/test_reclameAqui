@@ -6,25 +6,31 @@ const { Complain } = require('../../db/models/index');
 class Complains
 {
 
-    async getAll(request,response)
-    {
-        var complains = await Complain.find({});
+    async getCountComplainsForCity(request,response)
+    {   
+        var { city } = request.params;
+
+        var condition = { 'locale.city' : {'$regex': city, '$options': 'i'}};
+
+        var complains = await Complain.aggregate([
+            {
+                $match: condition
+            },
+            {
+                $group:
+                {
+                _id:'$locale.city',
+                count: {$sum:1}
+                }
+            }
+        ])
 
         response.status(200).json(complains);
     };
 
     async add(request,response)
-    {      
-        let requestIP = request.ip;
-
-        var userIP = (requestIP.trim() == '::1' ) ? '187.10.129.216' : requestIP;
+    {         
         var complain = request.body;
-        var locale = await WhereService.IsIp(userIP);
-
-
-        // include locale to model
-        complain.locale = locale;
-
         let save = await new Complain(complain).save();
 
         response.status(200).json(save);
